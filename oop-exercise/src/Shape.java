@@ -1,5 +1,5 @@
 public abstract class Shape {
-
+    // shape
     private String shapeName;
 
     protected Shape(String shapeName) {
