@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="40429f46-b1b3-49e9-8def-ec79be57355a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/example.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/9/7/97ba2defefdb26877ca918d480e3a641577eea11" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/9/9/9918cb1469126044bb30b5196d466ef53d28993f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/a/2/a2df953e2212059767394833818ea49a20e83ffd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/d/2/d2ce68f255050f73e00128487b6882969f84ad17" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/f/a/fab6dac3cdc568ed7aa4122a6189ef47d0fab33c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/f/b/fb49a53b9e7f6456f83d03ca0062410ca55f2a85" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/oop-task.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Circle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Rectangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Shape.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Square.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Utils.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GqMLmiO3oCEPu5wvOprol899on" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "E:/Hsenid/projects/Github/Training",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="40429f46-b1b3-49e9-8def-ec79be57355a" name="Changes" comment="" />
+      <created>1667111606212</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667111606212</updated>
+      <workItem from="1667111608633" duration="892000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
