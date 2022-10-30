@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="40429f46-b1b3-49e9-8def-ec79be57355a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Training.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/example.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/9/7/97ba2defefdb26877ca918d480e3a641577eea11" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/9/9/9918cb1469126044bb30b5196d466ef53d28993f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/a/2/a2df953e2212059767394833818ea49a20e83ffd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/d/2/d2ce68f255050f73e00128487b6882969f84ad17" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/f/a/fab6dac3cdc568ed7aa4122a6189ef47d0fab33c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/f/b/fb49a53b9e7f6456f83d03ca0062410ca55f2a85" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/oop-task.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Circle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Rectangle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Shape.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Square.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/oop-exercise/src/Utils.java" beforeDir="false" />
-    </list>
+    <list default="true" id="40429f46-b1b3-49e9-8def-ec79be57355a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,14 +17,19 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2GqMLmiO3oCEPu5wvOprol899on" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "E:/Hsenid/projects/Github/Training",
     "node.js.detected.package.eslint": "true",
@@ -69,11 +46,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667111606212</updated>
-      <workItem from="1667111608633" duration="892000" />
+      <workItem from="1667111608633" duration="1016000" />
     </task>
+    <task id="LOCAL-00001" summary="mvn project initial commit">
+      <created>1667112585867</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667112585868</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="mvn project initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="mvn project initial commit" />
   </component>
 </project>
