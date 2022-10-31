@@ -5,21 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2068ab34-94ac-4d5a-90a8-2a33b554c9da" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../maven-basic-training-answer-sheet.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exampl2/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exampl2/Student.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/exampl2/Client.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/exampl2/Student.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/example1/MyClass.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/example1/MyClassTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../docker-basic-training/docker-basics-project/docker-project/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../docker-basic-training/docker-basics-project/docker-project/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../docker-basic-training/docker-basics-project/docker-project/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../docker-basic-training/docker-basics-project/docker-project/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../docker-basic-training/docker-basics-project/docker-project/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../docker-basic-training/docker-basics-project/docker-project/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../docker-basic-training/docker-basics-project/docker-project/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../docker-basic-training/docker-basics-project/docker-project/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../docker-basic-training/docker-basics-project/docker-project/src/main/java/org/example/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/example1/MyClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/example1/MyClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/example1/MyClassTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/example1/MyClassTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +51,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Hsenid/projects/oop-task&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -134,7 +130,9 @@
       <updated>1667113540388</updated>
       <workItem from="1667113541895" duration="1545000" />
       <workItem from="1667145110010" duration="3580000" />
-      <workItem from="1667182667129" duration="1163000" />
+      <workItem from="1667182667129" duration="1275000" />
+      <workItem from="1667185441702" duration="57000" />
+      <workItem from="1667206647720" duration="49000" />
     </task>
     <task id="LOCAL-00001" summary="mvn initial commit">
       <created>1667113591802</created>
@@ -157,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667147034514</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Implemented student class and lombok annotations">
+      <created>1667184266175</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667184266175</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,6 +172,7 @@
     <MESSAGE value="mvn initial commit" />
     <MESSAGE value="junit dependency added" />
     <MESSAGE value="Implemented first unit test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented first unit test" />
+    <MESSAGE value="Implemented student class and lombok annotations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented student class and lombok annotations" />
   </component>
 </project>
