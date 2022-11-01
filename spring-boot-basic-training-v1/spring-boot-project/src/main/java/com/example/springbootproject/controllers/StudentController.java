@@ -37,14 +37,15 @@ public class StudentController {
         if (student != null) {
             return new ResponseEntity<>(studentMapper.mapStudentToStudentDTO(student), HttpStatus.OK);
         }
-        return new ResponseEntity<>(new StudentDTO(), HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping
     public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO) {
         if (!studentDTO.getId().isEmpty()) {
             try {
-                StudentDTO newStudentDTO = studentservice.createStudentService(studentMapper.mapStudentDtoToStudent(studentDTO));
+                StudentDTO newStudentDTO = studentservice.createStudentService(studentMapper
+                        .mapStudentDtoToStudent(studentDTO));
 
                 if (newStudentDTO != null) {
                     return new ResponseEntity<>(newStudentDTO, HttpStatus.CREATED);
@@ -63,6 +64,6 @@ public class StudentController {
         if (deletedStudentId != null) {
             return new ResponseEntity<>(deletedStudentId, HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
