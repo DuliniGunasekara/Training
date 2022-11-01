@@ -13,5 +13,7 @@ public interface StudentRepository extends MongoRepository<Student,String> {
 
     Student findStudentById(final String id);
 
+    Student deleteStudentById(final String id);
+
 
 }

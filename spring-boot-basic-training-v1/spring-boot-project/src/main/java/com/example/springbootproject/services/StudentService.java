@@ -21,8 +21,9 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public void createStudentService(final Student student)  {
-        studentRepository.save(student);
+    public StudentDTO createStudentService(final Student student)  {
+        Student savedStudent = studentRepository.save(student);
+        return studentMapper.mapStudentToStudentDTO(savedStudent);
     }
 
     public List<Student> getAllStudentsService(){
@@ -32,5 +33,10 @@ public class StudentService {
 
     public Student getStudentService(final String studentId){
         return studentRepository.findStudentById(studentId);
+    }
+
+    public String deleteStudentService(String studentId){
+        Student deletedStudentId = studentRepository.deleteStudentById(studentId);
+        return deletedStudentId.getId();
     }
 }

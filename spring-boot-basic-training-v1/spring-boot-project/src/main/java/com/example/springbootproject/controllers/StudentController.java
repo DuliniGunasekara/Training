@@ -39,19 +39,18 @@ public class StudentController {
     }
 
     @PostMapping
-    public void createStudent(@RequestBody StudentDTO studentDTO){
+    public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO){
         try{
             Student student = studentMapper.mapStudentDtoToStudent(studentDTO);
-            studentservice.createStudentService(student);
+            return new ResponseEntity<>(studentservice.createStudentService(student),HttpStatus.CREATED);
         }catch (ParseException parseException){
-
+            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
-
 
     }
 
     @DeleteMapping("/{studentId}")
-    public void deleteStudent(@PathVariable final String studentId){
-
+    public ResponseEntity<String> deleteStudent(@PathVariable final String studentId){
+         return new ResponseEntity<>(studentservice.deleteStudentService(studentId),HttpStatus.CREATED);
     }
 }
