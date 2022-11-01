@@ -7,6 +7,8 @@ import com.example.springbootproject.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class StudentService {
@@ -21,5 +23,14 @@ public class StudentService {
 
     public void createStudentService(final Student student)  {
         studentRepository.save(student);
+    }
+
+    public List<Student> getAllStudentsService(){
+        List<Student> studentList  = studentRepository.findAll();;
+        return studentList;
+    }
+
+    public Student getStudentService(final String studentId){
+        return studentRepository.findStudentById(studentId);
     }
 }

@@ -4,6 +4,8 @@ import com.example.springbootproject.dto.StudentDTO;
 import com.example.springbootproject.dto.mapper.StudentMapper;
 import com.example.springbootproject.models.Student;
 import com.example.springbootproject.services.StudentService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -25,13 +27,15 @@ public class StudentController {
     }
 
     @GetMapping
-    public List<Student> getAllStudents(){
-        return new ArrayList<>();
+    public ResponseEntity<List<Student>> getAllStudents(){
+        List<Student> studentList = studentservice.getAllStudentsService();
+        return new ResponseEntity<>(studentList,HttpStatus.OK);
     }
 
     @GetMapping("/{studentId}")
-    public Student getStudent(@PathVariable("studentId") final String studentId){
-        return new Student();
+    public ResponseEntity<StudentDTO> getStudent(@PathVariable("studentId") final String studentId){
+        StudentDTO studentDTO = studentMapper.mapStudentToStudentDTO(studentservice.getStudentService(studentId));
+        return new ResponseEntity<>(studentDTO,HttpStatus.OK);
     }
 
     @PostMapping
