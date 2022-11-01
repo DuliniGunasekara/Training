@@ -3,12 +3,11 @@ package com.example.springbootproject.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @Getter
@@ -20,6 +19,6 @@ public class Student {
     @Id
     private String id;
     private String name;
-    private Date dob;
+    private LocalDate dob;
     private float average;
 }

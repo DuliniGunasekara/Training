@@ -6,8 +6,6 @@ import com.example.springbootproject.models.Student;
 import com.example.springbootproject.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,27 +14,40 @@ public class StudentService {
     private final StudentMapper studentMapper;
     private final StudentRepository studentRepository;
 
-    public StudentService(StudentMapper studentMapper, StudentRepository studentRepository){
+    public StudentService(StudentMapper studentMapper, StudentRepository studentRepository) {
         this.studentMapper = studentMapper;
         this.studentRepository = studentRepository;
     }
 
-    public StudentDTO createStudentService(final Student student)  {
-        Student savedStudent = studentRepository.save(student);
-        return studentMapper.mapStudentToStudentDTO(savedStudent);
+    public StudentDTO createStudentService(final Student student) {
+        Student existingStudent = studentRepository.findStudentById(student.getId());
+        if (existingStudent == null) {
+            Student savedStudent = studentRepository.save(student);
+            return studentMapper.mapStudentToStudentDTO(savedStudent);
+        }
+        return null;
     }
 
-    public List<Student> getAllStudentsService(){
-        List<Student> studentList  = studentRepository.findAll();;
-        return studentList;
+    public List<StudentDTO> getAllStudentsService() {
+        List<Student> studentList = studentRepository.findAll();
+        return studentList.stream().map(studentMapper::mapStudentToStudentDTO).toList();
     }
 
-    public Student getStudentService(final String studentId){
-        return studentRepository.findStudentById(studentId);
+    public Student getStudentService(final String studentId) {
+        Student student = studentRepository.findStudentById(studentId);
+        if (student != null) {
+            return student;
+        }
+        return null;
     }
 
-    public String deleteStudentService(String studentId){
-        Student deletedStudentId = studentRepository.deleteStudentById(studentId);
-        return deletedStudentId.getId();
+    public String deleteStudentService(String studentId) {
+        Student existingStudent = studentRepository.findStudentById(studentId);
+        if (existingStudent != null) {
+            return studentRepository.deleteStudentById(studentId).getId();
+        }
+        return null;
     }
+
+
 }

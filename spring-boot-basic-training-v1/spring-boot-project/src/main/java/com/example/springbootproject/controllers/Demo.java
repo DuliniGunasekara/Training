@@ -5,15 +5,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.logging.Logger;
-
 @RestController
 @RequestMapping("/demo")
 @NoArgsConstructor
 public class Demo {
 
     @GetMapping
-    public String helloMethod(){
+    public String helloMethod() {
         return "Hello Spring Boot!";
     }
 }

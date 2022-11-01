@@ -8,8 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
-import java.util.ArrayList;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 
 @RestController
@@ -21,36 +20,49 @@ public class StudentController {
     private final StudentMapper studentMapper;
 
 
-    public StudentController(StudentService studentservice, StudentMapper studentMapper){
+    public StudentController(StudentService studentservice, StudentMapper studentMapper) {
         this.studentservice = studentservice;
         this.studentMapper = studentMapper;
     }
 
-    @GetMapping
-    public ResponseEntity<List<Student>> getAllStudents(){
-        List<Student> studentList = studentservice.getAllStudentsService();
-        return new ResponseEntity<>(studentList,HttpStatus.OK);
+    @GetMapping("/all")
+    public ResponseEntity<List<StudentDTO>> getAllStudents() {
+        List<StudentDTO> studentList = studentservice.getAllStudentsService();
+        return new ResponseEntity<>(studentList, HttpStatus.OK);
     }
 
     @GetMapping("/{studentId}")
-    public ResponseEntity<StudentDTO> getStudent(@PathVariable("studentId") final String studentId){
-        StudentDTO studentDTO = studentMapper.mapStudentToStudentDTO(studentservice.getStudentService(studentId));
-        return new ResponseEntity<>(studentDTO,HttpStatus.OK);
+    public ResponseEntity<StudentDTO> getStudent(@PathVariable("studentId") final String studentId) {
+        Student student = studentservice.getStudentService(studentId);
+        if (student != null) {
+            return new ResponseEntity<>(studentMapper.mapStudentToStudentDTO(student), HttpStatus.OK);
+        }
+        return new ResponseEntity<>(new StudentDTO(), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO){
-        try{
-            Student student = studentMapper.mapStudentDtoToStudent(studentDTO);
-            return new ResponseEntity<>(studentservice.createStudentService(student),HttpStatus.CREATED);
-        }catch (ParseException parseException){
-            return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
-        }
+    public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO) {
+        if (!studentDTO.getId().isEmpty()) {
+            try {
+                StudentDTO newStudentDTO = studentservice.createStudentService(studentMapper.mapStudentDtoToStudent(studentDTO));
 
+                if (newStudentDTO != null) {
+                    return new ResponseEntity<>(newStudentDTO, HttpStatus.CREATED);
+                }
+
+            } catch (DateTimeParseException dateTimeParseException) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping("/{studentId}")
-    public ResponseEntity<String> deleteStudent(@PathVariable final String studentId){
-         return new ResponseEntity<>(studentservice.deleteStudentService(studentId),HttpStatus.CREATED);
+    public ResponseEntity<String> deleteStudent(@PathVariable final String studentId) {
+        String deletedStudentId = studentservice.deleteStudentService(studentId);
+        if (deletedStudentId != null) {
+            return new ResponseEntity<>(deletedStudentId, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }
