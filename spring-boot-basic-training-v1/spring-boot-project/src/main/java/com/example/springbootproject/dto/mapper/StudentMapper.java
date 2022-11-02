@@ -4,6 +4,9 @@ import com.example.springbootproject.Utils.Util;
 import com.example.springbootproject.dto.StudentDTO;
 import com.example.springbootproject.models.Student;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
+
+import java.time.LocalDate;
 
 @Component
 public class StudentMapper {
@@ -11,9 +14,12 @@ public class StudentMapper {
 
     public Student mapStudentDtoToStudent(final StudentDTO studentDTO) {
         Student student = new Student();
-        student.setId(studentDTO.getId());
         student.setName(studentDTO.getName());
-        student.setDob(Util.convertStringToDateFormat(studentDTO.getDob()));
+        if (studentDTO.getDob() != null) {
+            student.setDob(Util.convertStringToDateFormat(studentDTO.getDob()));
+        } else {
+            student.setDob(LocalDate.now());
+        }
         student.setAverage(studentDTO.getAverage());
         return student;
     }

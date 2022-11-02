@@ -42,7 +42,7 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO) {
-        if (!studentDTO.getId().isEmpty()) {
+        if (!studentDTO.getName().isEmpty() || studentDTO.getName() != null) {
             try {
                 StudentDTO newStudentDTO = studentservice.createStudentService(studentMapper
                         .mapStudentDtoToStudent(studentDTO));

@@ -20,7 +20,7 @@ public class StudentService {
     }
 
     public StudentDTO createStudentService(final Student student) {
-        Student existingStudent = studentRepository.findStudentById(student.getId());
+        Student existingStudent = studentRepository.findByName(student.getName());
         if (existingStudent == null) {
             Student savedStudent = studentRepository.save(student);
             return studentMapper.mapStudentToStudentDTO(savedStudent);

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +19,7 @@ public class Student {
 
     @Id
     private String id;
+    @Indexed(unique = true)
     private String name;
     private LocalDate dob;
     private float average;
