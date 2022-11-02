@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.format.DateTimeParseException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/students")
@@ -19,6 +21,8 @@ public class StudentController {
 
     private final StudentMapper studentMapper;
 
+    private static final Logger logger = Logger.getLogger(StudentController.class.getName());
+
 
     public StudentController(StudentService studentservice, StudentMapper studentMapper) {
         this.studentservice = studentservice;
@@ -27,12 +31,16 @@ public class StudentController {
 
     @GetMapping("/all")
     public ResponseEntity<List<StudentDTO>> getAllStudents() {
+        logger.log(Level.INFO,"In getAllStudents controller");
+
         List<StudentDTO> studentList = studentservice.getAllStudentsService();
         return new ResponseEntity<>(studentList, HttpStatus.OK);
     }
 
     @GetMapping("/{studentId}")
     public ResponseEntity<StudentDTO> getStudent(@PathVariable("studentId") final String studentId) {
+        logger.log(Level.INFO,"In getStudent controller");
+
         Student student = studentservice.getStudentService(studentId);
         if (student != null) {
             return new ResponseEntity<>(studentMapper.mapStudentToStudentDTO(student), HttpStatus.OK);
@@ -42,6 +50,8 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO) {
+        logger.log(Level.INFO,"In createStudent controller");
+
         if (!studentDTO.getName().isEmpty() || studentDTO.getName() != null) {
             try {
                 StudentDTO newStudentDTO = studentservice.createStudentService(studentMapper
@@ -60,6 +70,8 @@ public class StudentController {
 
     @DeleteMapping("/{studentId}")
     public ResponseEntity<String> deleteStudent(@PathVariable final String studentId) {
+        logger.log(Level.INFO,"In deleteStudent controller");
+
         String deletedStudentId = studentservice.deleteStudentService(studentId);
         if (deletedStudentId != null) {
             return new ResponseEntity<>(deletedStudentId, HttpStatus.OK);
