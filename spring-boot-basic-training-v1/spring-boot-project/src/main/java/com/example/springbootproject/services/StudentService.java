@@ -1,11 +1,15 @@
 package com.example.springbootproject.services;
 
-import com.example.springbootproject.dto.StudentDTO;
-import com.example.springbootproject.dto.mapper.StudentMapper;
+import com.example.springbootproject.mapper.StudentMapper;
 import com.example.springbootproject.models.Student;
 import com.example.springbootproject.repository.StudentRepository;
+import com.example.springbootproject.request.CreateStudentRequest;
+import com.example.springbootproject.response.CreateStudentResponse;
+import com.example.springbootproject.response.DeleteStudentResponse;
+import com.example.springbootproject.response.GetStudentResponse;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,40 +27,47 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public StudentDTO createStudentService(final Student student) {
+    public CreateStudentResponse createStudentService(final CreateStudentRequest createStudentRequest) {
         logger.log(Level.INFO,"In createStudentService method");
 
-        Student existingStudent = studentRepository.findByName(student.getName());
-        if (existingStudent == null) {
-            Student savedStudent = studentRepository.save(student);
-            return studentMapper.mapStudentToStudentDTO(savedStudent);
+        Student existingStudent = studentRepository.findStudentByName(createStudentRequest.getName()).orElse(null);
+
+        if(existingStudent == null){
+            studentMapper.mapCreateStudentRequestToStudent(createStudentRequest);
+            Student savedStudent = studentRepository.save(studentMapper.mapCreateStudentRequestToStudent(createStudentRequest));
+            return studentMapper.mapStudentToCreateStudentResponse(savedStudent);
         }
         return null;
     }
 
-    public List<StudentDTO> getAllStudentsService() {
+    public List<GetStudentResponse> getAllStudentsService() {
         logger.log(Level.INFO,"In getAllStudentsService method");
 
         List<Student> studentList = studentRepository.findAll();
-        return studentList.stream().map(studentMapper::mapStudentToStudentDTO).toList();
+        if (!studentList.isEmpty()){
+           return studentList.stream().map(studentMapper::mapStudentToGetStudentResponse).toList();
+        }
+
+        return new ArrayList<>();
     }
 
-    public Student getStudentService(final String studentId) {
+    public GetStudentResponse getStudentService(final String studentId) {
         logger.log(Level.INFO,"In getStudentService method");
 
-        Student student = studentRepository.findStudentById(studentId);
+        Student student = studentRepository.findStudentById(studentId).orElse(null);
         if (student != null) {
-            return student;
+            return studentMapper.mapStudentToGetStudentResponse(student);
         }
         return null;
     }
 
-    public String deleteStudentService(String studentId) {
+    public DeleteStudentResponse deleteStudentService(String studentId) {
         logger.log(Level.INFO,"In deleteStudentService method");
 
-        Student existingStudent = studentRepository.findStudentById(studentId);
+        Student existingStudent = studentRepository.findStudentById(studentId).orElse(null);
         if (existingStudent != null) {
-            return studentRepository.deleteStudentById(studentId).getId();
+            studentRepository.deleteStudentById(studentId);
+            return studentMapper.mapStudentToDeleteStudentResponse(existingStudent);
         }
         return null;
     }

@@ -1,8 +1,10 @@
 package com.example.springbootproject.controllers;
 
-import com.example.springbootproject.dto.StudentDTO;
-import com.example.springbootproject.dto.mapper.StudentMapper;
-import com.example.springbootproject.models.Student;
+import com.example.springbootproject.mapper.StudentMapper;
+import com.example.springbootproject.request.CreateStudentRequest;
+import com.example.springbootproject.response.CreateStudentResponse;
+import com.example.springbootproject.response.DeleteStudentResponse;
+import com.example.springbootproject.response.GetStudentResponse;
 import com.example.springbootproject.services.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,35 +32,34 @@ public class StudentController {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<StudentDTO>> getAllStudents() {
+    public ResponseEntity<List<GetStudentResponse>> getAllStudents() {
         logger.log(Level.INFO,"In getAllStudents controller");
 
-        List<StudentDTO> studentList = studentservice.getAllStudentsService();
+        List<GetStudentResponse> studentList = studentservice.getAllStudentsService();
         return new ResponseEntity<>(studentList, HttpStatus.OK);
     }
 
     @GetMapping("/{studentId}")
-    public ResponseEntity<StudentDTO> getStudent(@PathVariable("studentId") final String studentId) {
+    public ResponseEntity<GetStudentResponse> getStudent(@PathVariable("studentId") final String studentId) {
         logger.log(Level.INFO,"In getStudent controller");
 
-        Student student = studentservice.getStudentService(studentId);
-        if (student != null) {
-            return new ResponseEntity<>(studentMapper.mapStudentToStudentDTO(student), HttpStatus.OK);
+        GetStudentResponse getStudentResponse = studentservice.getStudentService(studentId);
+        if (getStudentResponse != null) {
+            return new ResponseEntity<>(getStudentResponse, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping
-    public ResponseEntity<StudentDTO> createStudent(@RequestBody StudentDTO studentDTO) {
+    public ResponseEntity<CreateStudentResponse> createStudent(@RequestBody CreateStudentRequest createStudentRequest) {
         logger.log(Level.INFO,"In createStudent controller");
 
-        if (!studentDTO.getName().isEmpty() || studentDTO.getName() != null) {
+        if (!createStudentRequest.getName().isEmpty() || createStudentRequest.getName() != null) {
             try {
-                StudentDTO newStudentDTO = studentservice.createStudentService(studentMapper
-                        .mapStudentDtoToStudent(studentDTO));
+                CreateStudentResponse newStudent = studentservice.createStudentService(createStudentRequest);
 
-                if (newStudentDTO != null) {
-                    return new ResponseEntity<>(newStudentDTO, HttpStatus.CREATED);
+                if (newStudent != null) {
+                    return new ResponseEntity<>(newStudent, HttpStatus.CREATED);
                 }
 
             } catch (DateTimeParseException dateTimeParseException) {
@@ -69,10 +70,10 @@ public class StudentController {
     }
 
     @DeleteMapping("/{studentId}")
-    public ResponseEntity<String> deleteStudent(@PathVariable final String studentId) {
+    public ResponseEntity<DeleteStudentResponse> deleteStudent(@PathVariable final String studentId) {
         logger.log(Level.INFO,"In deleteStudent controller");
 
-        String deletedStudentId = studentservice.deleteStudentService(studentId);
+        DeleteStudentResponse deletedStudentId = studentservice.deleteStudentService(studentId);
         if (deletedStudentId != null) {
             return new ResponseEntity<>(deletedStudentId, HttpStatus.OK);
         }

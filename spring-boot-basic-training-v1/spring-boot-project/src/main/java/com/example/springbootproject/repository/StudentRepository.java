@@ -5,17 +5,18 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface StudentRepository extends MongoRepository<Student, String> {
 
     List<Student> findAll();
 
-    Student findStudentById(final String id);
+    Optional<Student> findStudentById(final String id);
 
-    Student deleteStudentById(final String id);
+    Optional<Student> deleteStudentById(final String id);
 
-    Student findByName(String name);
+    Optional<Student> findStudentByName(String name);
 
 
 }
