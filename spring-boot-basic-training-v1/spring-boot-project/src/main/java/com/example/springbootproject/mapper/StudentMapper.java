@@ -30,7 +30,7 @@ public class StudentMapper {
     }
 
     public DeleteStudentResponse mapStudentToDeleteStudentResponse(final Student student) {
-        DeleteStudentResponse deleteStudentResponse= new DeleteStudentResponse();
+        DeleteStudentResponse deleteStudentResponse = new DeleteStudentResponse();
         deleteStudentResponse.setId(student.getId());
         deleteStudentResponse.setName(student.getName());
         deleteStudentResponse.setAverage(student.getAverage());

@@ -1,39 +1,34 @@
 package com.example.springbootproject.controllers;
 
-import com.example.springbootproject.mapper.StudentMapper;
 import com.example.springbootproject.request.CreateStudentRequest;
 import com.example.springbootproject.response.CreateStudentResponse;
 import com.example.springbootproject.response.DeleteStudentResponse;
 import com.example.springbootproject.response.GetStudentResponse;
 import com.example.springbootproject.services.StudentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.format.DateTimeParseException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
 
     private final StudentService studentservice;
-
-    private final StudentMapper studentMapper;
-
-    private static final Logger logger = Logger.getLogger(StudentController.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
 
 
-    public StudentController(StudentService studentservice, StudentMapper studentMapper) {
+    public StudentController(StudentService studentservice) {
         this.studentservice = studentservice;
-        this.studentMapper = studentMapper;
     }
 
     @GetMapping("/all")
     public ResponseEntity<List<GetStudentResponse>> getAllStudents() {
-        logger.log(Level.INFO,"In getAllStudents controller");
+        logger.info("In getAllStudents controller");
 
         List<GetStudentResponse> studentList = studentservice.getAllStudentsService();
         return new ResponseEntity<>(studentList, HttpStatus.OK);
@@ -41,7 +36,7 @@ public class StudentController {
 
     @GetMapping("/{studentId}")
     public ResponseEntity<GetStudentResponse> getStudent(@PathVariable("studentId") final String studentId) {
-        logger.log(Level.INFO,"In getStudent controller");
+        logger.info("In getStudent controller");
 
         GetStudentResponse getStudentResponse = studentservice.getStudentService(studentId);
         if (getStudentResponse != null) {
@@ -52,7 +47,7 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity<CreateStudentResponse> createStudent(@RequestBody CreateStudentRequest createStudentRequest) {
-        logger.log(Level.INFO,"In createStudent controller");
+        logger.info("In createStudent controller");
 
         if (!createStudentRequest.getName().isEmpty() || createStudentRequest.getName() != null) {
             try {
@@ -71,7 +66,7 @@ public class StudentController {
 
     @DeleteMapping("/{studentId}")
     public ResponseEntity<DeleteStudentResponse> deleteStudent(@PathVariable final String studentId) {
-        logger.log(Level.INFO,"In deleteStudent controller");
+        logger.info("In deleteStudent controller");
 
         DeleteStudentResponse deletedStudentId = studentservice.deleteStudentService(studentId);
         if (deletedStudentId != null) {
