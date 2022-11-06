@@ -22,6 +22,6 @@ public class AppUser {
 
     private String password;
 
-    private List<Enum<UserRole>> userRole;
+    private List<UserRole> userRole;
 
 }

@@ -12,10 +12,12 @@ public class RequestMapper {
 
     private PasswordEncoder passwordEncoder;
 
-    public AppUser mapRegisterRequestToAppUser(final RegisterRequest registerRequest){
+    public AppUser mapRegisterRequestToAppUser(final RegisterRequest registerRequest) {
         AppUser appUser = new AppUser();
         appUser.setUsername(registerRequest.getUsername());
         appUser.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
+        appUser.setUserRole(registerRequest.getRoles().stream().toList());
+
         return appUser;
     }
 }

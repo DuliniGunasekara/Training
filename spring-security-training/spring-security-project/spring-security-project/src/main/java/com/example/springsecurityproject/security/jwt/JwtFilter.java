@@ -2,7 +2,6 @@ package com.example.springsecurityproject.security.jwt;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.GenericFilterBean;
 
@@ -12,7 +11,6 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-
 
 
 public class JwtFilter extends GenericFilterBean {
@@ -32,14 +30,14 @@ public class JwtFilter extends GenericFilterBean {
         final String bearerToken = httpServletRequest.getHeader("Authorization");
         String jwt = null;
 
-        if(StringUtils.hasLength(bearerToken) && bearerToken.startsWith("Bearer ")){
+        if (StringUtils.hasLength(bearerToken) && bearerToken.startsWith("Bearer ")) {
             jwt = bearerToken.substring(7);
         }
 
-        if(StringUtils.hasLength(jwt) && tokenProvider.validateToken(jwt)){
+        if (StringUtils.hasLength(jwt) && tokenProvider.validateToken(jwt)) {
             Authentication authentication = tokenProvider.getAuthentication(jwt);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }
-        filterChain.doFilter(servletRequest,servletResponse);
+        filterChain.doFilter(servletRequest, servletResponse);
     }
 }
