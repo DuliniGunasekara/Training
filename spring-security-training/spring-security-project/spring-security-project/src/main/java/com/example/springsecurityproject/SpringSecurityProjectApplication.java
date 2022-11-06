@@ -10,4 +10,9 @@ public class SpringSecurityProjectApplication {
 		SpringApplication.run(SpringSecurityProjectApplication.class, args);
 	}
 
+//	@Bean
+//	public TokenProvider tokenProvider(){
+//         return new TokenProvider();
+//	}
+
 }
