@@ -83,8 +83,7 @@ public class TokenProvider {
         Collection<? extends GrantedAuthority> authorities = Arrays
                 .stream(claims.get("auth").toString().split(","))
                 .filter(auth -> !auth.trim().isEmpty())
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
+                .map(SimpleGrantedAuthority::new).toList();
 
         User user = new User(claims.getSubject(),"",authorities);
 
@@ -95,10 +94,13 @@ public class TokenProvider {
     public boolean validateToken(final String token){
 
         try{
-            jwtParser.parseClaimsJws(token);
+//            jwtParser.parseClaimsJws(token);
+
+            Jwts.parser().setSigningKey(BASE_64_SECRET).parseClaimsJws(token);
             return true;
         }catch (Exception ex){
             //TODO
+            System.out.println(ex);
         }
 
         return false;

@@ -38,10 +38,10 @@ public class SecurityConfig  {
          http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeRequests(auth->{
-                    auth.antMatchers("/login").permitAll();
+                    auth.antMatchers("/user/**").permitAll();
                     auth.antMatchers("/home").permitAll();
-                    auth.antMatchers("/dashboard").hasAnyAuthority("USER","ADMIN");
-                    auth.antMatchers("/manage").hasAnyAuthority("ADMIN");
+                    auth.antMatchers("/dashboard").hasAnyAuthority("ROLE_USER","ROLE_ADMIN");
+                    auth.antMatchers("/manage").hasAnyAuthority("ROLE_ADMIN");
                 })
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .httpBasic(Customizer.withDefaults())

@@ -1,7 +1,7 @@
 package com.example.springsecurityproject.Constants;
 
 public enum UserRole {
-    SUPER_ADMIN,
-    ADMIN,
-    USER
+    ROLE_SUPER_ADMIN,
+    ROLE_ADMIN,
+    ROLE_USER
 }
