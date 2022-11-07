@@ -1,5 +1,6 @@
 package com.example.springsecurityproject.security;
 
+import com.example.springsecurityproject.constants.UserRole;
 import com.example.springsecurityproject.security.jwt.JwtConfigurer;
 import com.example.springsecurityproject.security.jwt.TokenProvider;
 import org.springframework.context.annotation.Bean;
@@ -37,13 +38,10 @@ public class SecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable).authorizeRequests(auth -> {
             auth.antMatchers("/user/").permitAll();
             auth.antMatchers("/home").permitAll();
-            auth.antMatchers("/dashboard").hasAnyAuthority("ROLE_USER", "ROLE_ADMIN");
-            auth.antMatchers("/manage").hasAnyAuthority("ROLE_ADMIN");
+            auth.antMatchers("/dashboard").hasAnyAuthority(UserRole.ROLE_USER.toString(), UserRole.ROLE_ADMIN.toString());
+            auth.antMatchers("/manage").hasAnyAuthority(UserRole.ROLE_ADMIN.toString());
         }).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)).httpBasic(Customizer.withDefaults()).apply(jwtSecurityConfigurerAdapter());
 
         return http.build();
-
     }
-
-
 }

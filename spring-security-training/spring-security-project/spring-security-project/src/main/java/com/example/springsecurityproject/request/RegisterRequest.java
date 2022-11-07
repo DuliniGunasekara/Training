@@ -1,6 +1,6 @@
 package com.example.springsecurityproject.request;
 
-import com.example.springsecurityproject.Constants.UserRole;
+import com.example.springsecurityproject.constants.UserRole;
 import lombok.Getter;
 import lombok.Setter;
 

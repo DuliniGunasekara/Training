@@ -1,6 +1,6 @@
 package com.example.springsecurityproject.request.mapper;
 
-import com.example.springsecurityproject.Model.AppUser;
+import com.example.springsecurityproject.model.AppUser;
 import com.example.springsecurityproject.request.RegisterRequest;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

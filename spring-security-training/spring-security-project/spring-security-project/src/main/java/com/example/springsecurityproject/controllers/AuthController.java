@@ -7,6 +7,8 @@ import com.example.springsecurityproject.response.RegisterResponse;
 import com.example.springsecurityproject.response.mapper.ResponseMapper;
 import com.example.springsecurityproject.security.jwt.TokenProvider;
 import com.example.springsecurityproject.services.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class AuthController {
 
+    private final Logger logger = LoggerFactory.getLogger(AuthController.class);
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
     private final TokenProvider tokenProvider;
@@ -41,6 +44,8 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<LoginResponse> login(@RequestBody LoginRequest loginRequest) {
+        logger.info("In login controller");
+
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword());
 
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
@@ -56,6 +61,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<RegisterResponse> register(@RequestBody final RegisterRequest registerRequest) {
+        logger.info("In register controller");
 
         if (!StringUtils.hasLength(registerRequest.getUsername()) && !StringUtils.hasLength(registerRequest.getPassword()) && registerRequest.getRoles().isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

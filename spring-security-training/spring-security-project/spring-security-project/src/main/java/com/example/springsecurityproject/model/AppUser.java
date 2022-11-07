@@ -1,6 +1,6 @@
-package com.example.springsecurityproject.Model;
+package com.example.springsecurityproject.model;
 
-import com.example.springsecurityproject.Constants.UserRole;
+import com.example.springsecurityproject.constants.UserRole;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;

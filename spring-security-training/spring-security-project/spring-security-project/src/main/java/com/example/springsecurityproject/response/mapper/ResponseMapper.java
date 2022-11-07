@@ -1,6 +1,6 @@
 package com.example.springsecurityproject.response.mapper;
 
-import com.example.springsecurityproject.Model.AppUser;
+import com.example.springsecurityproject.model.AppUser;
 import com.example.springsecurityproject.response.LoginResponse;
 import com.example.springsecurityproject.response.RegisterResponse;
 import org.springframework.stereotype.Component;
